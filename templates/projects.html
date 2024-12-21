@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Projects - ECHOTELECOM</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .project-container {
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .project-item {
+            margin: 20px;
+            padding: 30px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-item i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-item a {
+            font-size: 1.2rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home') }}">ECHOTELECOM</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('products') }}">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <div class="container project-container">
+        <h2>Our Projects</h2>
+        <p>Explore some of the innovative projects we are working on!</p>
+        
+        <div class="row">
+            <!-- Icons Project -->
+            <div class="col-md-3">
+                <div class="project-item">
+                    <i class="fas fa-icons"></i>
+                    <h3>Icons Project</h3>
+                    <p>Learn more about our work with icons in design and functionality.</p>
+                    <a href="https://link-to-icons-project.com" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <!-- RFS Project -->
+            <div class="col-md-3">
+                <div class="project-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>RFS (Request for Service)</h3>
+                    <p>Our system to handle service requests efficiently and effectively.</p>
+                    <a href="https://link-to-rfs-project.com" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <!-- Example Repo -->
+            <div class="col-md-3">
+                <div class="project-item">
+                    <i class="fab fa-github"></i>
+                    <h3>Example Repo</h3>
+                    <p>Explore our repositories and projects on GitHub.</p>
+                    <a href="https://github.com/your-repo" target="_blank">View Repo</a>
+                </div>
+            </div>
+
+            <!-- Computer Vision Project -->
+            <div class="col-md-3">
+                <div class="project-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Computer Vision</h3>
+                    <p>Explore our work in the field of computer vision and AI.</p>
+                    <a href="https://link-to-computer-vision-project.com" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024 ECHOTELECOM. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

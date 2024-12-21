@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Echotelecom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background-color: lightskyblue;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: right;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar, .navbar-nav .nav-link {
+            font-family: 'Arial', 'Helvetica', sans-serif; /* Sans-serif font */
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-left: auto; /* Push links to the right */
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Page Content */
+        .content {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .subheading {
+            font-size: 28px;
+            font-weight: bold;
+            color: gray;
+        }
+
+        /* Section Styling */
+        .section {
+            margin: 50px 0;
+            padding: 20px;
+        }
+
+        .section h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .section .content-flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        /* For Computer Vision */
+        .cv-text, .iot-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .cv-image, .iot-image {
+            flex: 1;
+            max-width: 35%; /* Increased size of image box */
+        }
+
+        .cv-image img, .iot-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cv-link {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: lightskyblue;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .cv-link:hover {
+            background-color: deepskyblue;
+        }
+
+        /* For AI */
+        .ai-images {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .ai-text {
+            flex: 2;
+        }
+
+        .ai-images img {
+            width: 48%; /* Two images beside each other */
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .statement {
+            font-family: 'Righteous', sans-serif;
+            text-align:center;
+            font-size: 50px;
+            color: #333333;
+            line-height: 1.5;
+            margin: 0;
+            text-transform: none; /* Keep natural case */
+        }
+
+        .statement-container {
+            background-color: #ffffff;
+            padding: 40px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Echotelecom</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('support') }}">Support</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="heading">Explore the Future of Technology</div>
+        <div class="subheading">Computer Vision, AI, and IoT</div>
+    </div>
+
+    <!-- Computer Vision Section -->
+    <div class="section">
+        <h3>Computer Vision</h3>
+        <div class="content-flex">
+            <div class="cv-text">
+                <p class="p3">
+                    Computer Vision enables machines to interpret and make decisions based on visual data. From facial recognition to autonomous vehicles, this technology is revolutionizing industries worldwide.
+                    Computer Vision enables machines to interpret and understand the world visually, mimicking human sight and perception.
+                    Through image and video recognition, it empowers machines to make decisions based on visual data
+                    By revolutionizing industries such as healthcare, automotive, and security, Computer Vision brings automation to tasks that previously required human involvement, improving accuracy, speed, and safety
+
+                </p>
+                <a href="https://www.example.com" target="_blank" class="cv-link">Learn More</a>
+            </div>
+            <div class="cv-image">
+                <img src="/static/images/Computer Vision.jpg" alt="Computer Vision Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Section -->
+    <div class="section">
+        <h3>Artificial Intelligence (AI)</h3>
+        <div class="content-flex">
+            <div class="ai-images">
+                <img src="/static/images/Free Photo _ AI nuclear energy, future innovation of disruptive technology.jpg" alt="AI Image 1">
+                <img src="/static/images/Top 10 Emerging IoT Technologies You Should Know.jpg" alt="AI Image 2">
+            </div>
+            <div class="ai-text">
+                <p class="p3">
+                    AI refers to the simulation of human intelligence processes by machines. It can process vast amounts of data, learning and adapting in real-time.
+                    AI is driving innovation in healthcare, finance, transportation, and more.
+                    By automating routine tasks and analyzing vast amounts of data, AI helps make quicker, more accurate decisions. 
+                    AI-driven advancements like personalized recommendations and predictive analytics are reshaping consumer experiences and business strategies.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- IoT Section -->
+    <div class="section">
+        <h3>Internet of Things (IoT)</h3>
+        <div class="content-flex">
+            <div class="iot-text">
+                <p class="p3">
+                    IoT connects everyday devices to the internet, allowing them to send and receive data. This technology improves the efficiency and convenience of devices ranging from home appliances to industrial machinery.
+                    IoT is transforming industries by enhancing data collection and real-time decision-making.
+                    In agriculture, IoT helps optimize irrigation and farming techniques, while in smart homes, IoT enables energy-efficient systems. 
+                    In industrial applications, IoT helps predict maintenance needs, reducing downtime and improving operational efficiency
+                </p>
+            </div>
+            <div class="iot-image">
+                <img src="/static/images/How is cloud computing changing the world in the future.jpg" alt="IoT Image">
+            </div>
+        </div>
+    </div>
+    <div class="statement-container">
+        <p class="statement">Computer Vision, IoT, and AI are the future of technology and crypto</p>
+    </div>
+</body>
+</html>

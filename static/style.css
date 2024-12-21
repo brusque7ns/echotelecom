@@ -1,0 +1,678 @@
+/* Global styles */
+body {
+    font-family: papyrus;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    color: lightseagreen; /* Default text color for readability */
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent navbar */
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.navbar .nav-link {
+    color: lightseagreen;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar .nav-link.active {
+    color: red;
+    text-decoration: underline;
+}
+
+.navbar .nav-link:hover {
+    color: yellow;
+}
+
+/* Main content */
+.main-content {
+    margin-top: 90px; /* Prevent overlap with navbar */
+    text-align: center;
+}
+
+/* Animated "ECHOTELECOM" text */
+.echotelecom {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    display: flex;
+}
+
+.echotelecom span {
+    display: inline-block;
+}
+
+.echotelecom span:nth-child(-n+5) {
+    animation: float 1s ease-in-out infinite alternate;
+}
+
+.echotelecom span:nth-child(odd) {
+    animation-direction: alternate-reverse;
+}
+
+.echotelecom span:nth-child(1) { color: red; }
+.echotelecom span:nth-child(2) { color: green; }
+.echotelecom span:nth-child(3) { color: blue; }
+.echotelecom span:nth-child(4) { color: orange; }
+.echotelecom span:nth-child(5) { color: purple; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: lightskyblue;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    width: 250px;
+    height: 200px;
+}
+
+.popup.middle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup.left {
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.popup.right {
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+}
+
+.popup.visible {
+    display: block;
+}
+
+/* Contact form */
+.contact-form {
+    width: 80%;
+    background-color: rgba(11, 18, 159, 0.9); /* Semi-transparent form */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    border-radius: 10px;
+    color: #333; /* Dark text for readability */
+}
+
+.contact-form h2 {
+    margin-top: 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .contact-form {
+        width: 90%;
+    }
+}
+
+/* Section styling */
+section {
+    height: 100vh; /* Full-screen sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.why-people-love-us {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.why-people-love-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: #333;
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+    background: conic-gradient(lightskyblue calc(var(--percentage) * 1%), #ddd 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.circle span {
+    position: relative;
+    z-index: 2;
+}
+
+.circle-description {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+}
+p {
+    font-size: 3rem; /* Slightly larger than default for readability */
+    line-height: 1.6; /* Improves spacing between lines */
+    font-weight: 400; /* Standard weight for paragraphs */
+    color: #333; /* Dark gray for good contrast */
+    text-align: justify; /* Ensures text is evenly aligned */
+    margin-bottom: 15px; /* Adds spacing after each paragraph */
+    font-family: monaco; /* Clean and modern font */
+    letter-spacing: 0.5px; /* Slightly spaces out letters for readability */
+}
+p1 {
+    font-size: 2rem; /* Slightly larger than default for readability */
+    line-height: 1.6; /* Improves spacing between lines */
+    font-weight: 400; /* Standard weight for paragraphs */
+    color: whitesmoke; /* Dark gray for good contrast */
+    text-align: justify; /* Ensures text is evenly aligned */
+    margin-bottom: 10px; /* Adds spacing after each paragraph */
+    font-family: 'American Typewriter', Courier, 'Courier New', sans-serif; /* Apply American Typewriter font */
+    letter-spacing: 0.5px; /* Slightly spaces out letters for readability */
+}
+p2 {
+    font-size: 2rem; /* Slightly larger than default for readability */
+    line-height: 1.6; /* Improves spacing between lines */
+    font-weight: 400; /* Standard weight for paragraphs */
+    color: black; /* Dark gray for good contrast */
+    text-align: justify; /* Ensures text is evenly aligned */
+    margin-bottom: 10px; /* Adds spacing after each paragraph */
+    font-family: 'American Typewriter', Courier, 'Courier New', sans-serif; /* Apply American Typewriter font */
+    letter-spacing: 0.5px; /* Slightly spaces out letters for readability */
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute icons evenly */
+    align-items: center; /* Center align the icons horizontally */
+    width: 15%; /* Fixed width for the column */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Matching background color */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.home__social {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Take full height of the column */
+    justify-content: space-between; /* Evenly distribute icons vertically */
+    align-items: center; /* Center align icons horizontally */
+}
+
+.home__social-icon {
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline */
+}
+
+.home__social-icon i {
+    color: inherit; /* Use the link's color */
+}
+
+/* Define colors for each social platform */
+.home__social-icon[href*="linkedin"] i { color: #0077b5; }
+.home__social-icon[href*="stackoverflow"] i { color: #f48024; }
+.home__social-icon[href*="github"] i { color: #000000; }
+.home__social-icon[href*="medium"] i { color: #00ab6c; }
+.home__social-icon[href*="instagram"] i { color: #e1306c; }
+.home__social-icon[href*="facebook"] i { color: #1877f2; }
+.home__social-icon[href*="tiktok"] i { color: #010101; }
+.home__social-icon[href*="telegram"] i { color: #0088cc; }
+.home__social-icon[href*="mailto"] i { color: #d44638; }
+
+/* Hover effect */
+.home__social-icon:hover i {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+/* Discord Icon */
+.social-link.discord {
+    background-color: #5865F2;
+    color: white;
+}
+
+.social-link.discord:hover {
+    background-color: #4752c4;
+}
+
+/* Reddit Icon */
+.social-link.reddit {
+    background-color: #FF4500;
+    color: white;
+}
+
+.social-link.reddit:hover {
+    background-color: #cc3700;
+}
+
+/* Facebook Icon */
+.social-link.facebook {
+    background-color: #1877F2;
+    color: white;
+}
+
+.social-link.facebook:hover {
+    background-color: #145dbf;
+}
+/* General Styles */
+.get-in-touch {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.column {
+    width: 30%; /* 3 equal columns */
+    padding: 20px;
+}
+
+.column h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.subtext {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+p3 {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.fas {
+    font-size: 2rem;
+    margin-right: 10px;
+    color: #4CAF50;
+}
+
+/* Location and Call Us Icon */
+.location, .call-us, .office-hours, .email-us {
+    margin-bottom: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .get-in-touch {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .column {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 20px;
+    }
+}
+/* General Styles for Find Us Section */
+.find-us {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.find-us h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+.find-us .subtext {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Layout for Columns */
+.find-us-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.branches-column {
+    flex: 1;
+    padding: 15px;
+}
+
+.image-column {
+    flex: 1;
+    text-align: center;
+}
+
+/* Branch List Styles */
+.branches {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.branches li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+.branches li i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+/* Image Styling */
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .find-us-container {
+        flex-direction: column;
+    }
+
+    .branches-column, .image-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .branches li {
+        justify-content: center;
+    }
+}
+/* General Section Styling */
+section {
+    margin: 0; /* Remove top and bottom margin */
+    padding: 2px 0; /* Minimize padding between sections */
+}
+
+/* Find Us Section */
+.find-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Reduce space between columns */
+    background-color: #f4f4f4;
+    padding: 20px; /* Adjust padding for uniformity */
+    margin: 0; /* Remove unnecessary space above and below */
+}
+
+/* Left Column (Areas and Branches) */
+.find-us .left-column {
+    flex: 1;
+    padding: 0 10px; /* Reduce internal spacing */
+}
+
+/* Right Column (Image) */
+.find-us .right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px; /* Reduce internal spacing */
+}
+
+/* Reduce Space for Other Sections */
+.get-in-touch, .quick-connect {
+    margin: 0; /* Remove unnecessary space between these sections */
+    padding: 20px 10px; /* Adjust for consistency */
+}
+
+/* Headings for All Sections */
+section h2, section h3 {
+    margin-bottom: 10px; /* Reduce space below headings */
+}
+
+/* Paragraphs */
+section p {
+    margin-bottom: 5px; /* Reduce space below paragraphs */
+}
+.p6 {
+    font-size: 30px; /* Base font size */
+    font-family: papyrus;
+    line-height: 1.6; /* Slightly increased for readability */
+    font-weight: 500; /* Medium weight for better emphasis */
+    color: #333333; /* Neutral dark color for text */
+    background-color: lightblue; /* Light background for contrast */
+    padding: 10px 15px; /* Spacing inside the paragraph */
+    margin: 10px 0; /* Spacing between paragraphs */
+    border-left: 4px solid #4CAF50; /* Subtle accent line */
+    border-radius: 5px; /* Smooth edges */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.p6:hover {
+    background-color: #e8f5e9; /* Slightly tinted background */
+    color: #2e7d32; /* Darker green text */
+}
+.p3 {
+    font-family: 'Arial Narrow', Arial, sans-serif; /* Use Arial Narrow as the primary
+    font-size: 20px; /* Adjust size as needed */
+    line-height: 2; /* Improve readability with line height */
+    color: #433f3f; /* Text color (dark gray) */
+    text-align: left; /* Align text to the left */
+    margin: 15px 0; /* Add some vertical spacing */
+}
+/* Footer general styles */
+.footer {
+    background-color: #343a40; /* Dark background */
+    color: white; /* White text */
+    padding: 40px 0; /* Adequate padding */
+}
+
+/* Ensure the footer container is centered with max width */
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Row to organize the footer columns */
+.footer .row {
+    display: flex; /* Flexbox for column layout */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Individual columns */
+.footer .col-md-3 {
+    flex: 1; /* Distributes columns evenly */
+    padding: 10px;
+    min-width: 250px; /* Prevent columns from shrinking too much */
+}
+
+/* Styling for headings in the footer */
+.footer h5 {
+    font-size: 1.2rem; /* Slightly larger font */
+    color:#1877F2;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+/* Styling for list items */
+.footer ul {
+    list-style: none; /* Removes bullet points */
+    padding-left: 0; /* Removes padding */
+}
+
+/* Styling for individual list items */
+.footer ul li {
+    margin-bottom: 8px; /* Adds space between list items */
+}
+
+/* Social Media Icons */
+.footer .social-icons a {
+    font-size: 1.5rem;
+    color: #00FFFF;
+    margin: 30px; /* Spacing between icons */
+    transition: color 0.3s; /* Smooth hover effect */
+}
+
+.footer .social-icons a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Make the social media and copyright text centered */
+.footer .social-icons {
+    text-align: center;
+    margin-top: 20px;
+    font-family: papyrus;
+    font-size: 2rem;
+
+}
+
+/* Footer responsiveness: Stacking the columns on smaller screens */
+@media (max-width: 768px) {
+    .footer .row {
+        flex-direction: column; /* Stack the columns vertically */
+    }
+
+    .footer .col-md-3 {
+        text-align: center; /* Center-align the text on small screens */
+        margin-bottom: 20px; /* Add spacing between stacked columns */
+    }
+
+    /* Optional: Adjust the social media icons to fit the mobile view */
+    .footer .social-icons a {
+        font-size: 1.2rem;
+    }
+}
+     /* Support Columns Layout */
+     .support-columns {
+        display: flex;
+        justify-content: space-between; /* Even spacing between columns */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        padding: 0 20px; /* Adds padding on the sides */
+        margin: 20px 0; /* Adds spacing above and below */
+    }
+
+    .support-column {
+        flex: 1 1 calc(33.33% - 20px); /* Each column takes about one-third of the row */
+        box-sizing: border-box; /* Ensures padding doesn’t affect width */
+        margin: 10px; /* Adds space around each column */
+        text-align: center;
+        padding: 20px;
+        min-width: 250px; /* Prevents columns from becoming too narrow */
+    }
+
+    .support-column h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .support-column p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .support-column a {
+        display: inline-block;
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+
+    .support-column a:hover {
+        text-decoration: underline;
+    }

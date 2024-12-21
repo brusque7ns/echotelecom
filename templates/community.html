@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - ECHOTELECOM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding-top: 60px; /* Adjust to account for fixed navbar */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .community-links {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .community-link {
+            flex: 1;
+            max-width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .community-link:hover {
+            transform: scale(1.05);
+        }
+
+        .community-link i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .community-link h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .community-link p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .community-link a {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .community-link a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (same as before) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">ECHOTELECOM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('products') }}">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <h2>Join Our Community</h2>
+
+        <div class="community-links">
+            <!-- Stack Overflow Link -->
+            <div class="community-link">
+                <i class="fab fa-stack-overflow"></i>
+                <h4>Stack Overflow</h4>
+                <p>Get answers to your technical questions from the community.</p>
+                <a href="https://stackoverflow.com" target="_blank">Visit Stack Overflow</a>
+            </div>
+
+            <!-- GitHub Link -->
+            <div class="community-link">
+                <i class="fab fa-github"></i>
+                <h4>GitHub</h4>
+                <p>Contribute to open-source projects and view our repositories.</p>
+                <a href="https://github.com" target="_blank">Visit GitHub</a>
+            </div>
+
+            <!-- Medium Link -->
+            <div class="community-link">
+                <i class="fab fa-medium"></i>
+                <h4>Medium</h4>
+                <p>Read our blogs and share your knowledge with the community.</p>
+                <a href="https://medium.com" target="_blank">Visit Medium</a>
+            </div>
+
+            <!-- Corporate Sponsors Link -->
+            <div class="community-link">
+                <i class="fas fa-handshake"></i>
+                <h4>Corporate Sponsors</h4>
+                <p>Our trusted partners who help us grow and provide support.</p>
+                <a href="{{ url_for('sponsors') }}">View Sponsors</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>ECHOTELECOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar (Fixed at the top) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 70px; /* Offset for the fixed navbar */
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: lightseagreen;
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            position: relative;
+            color: white;
+            margin-top: 80px; /* This ensures it starts below the navbar */
+        }
+        
+        /* Flex container to align text and image */
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%; /* Ensure it takes the full width */
+            max-width: 1200px; /* Optional: set a max width for content */
+        }
+        
+        /* Text section - left side */
+        .text-left {
+            width: 80%; /* 80% width for text */
+            padding-right: 20px; /* Optional: add some space between text and image */
+        }
+        
+        .text-left p1 {
+            font-size: 1.2rem; /* Adjust text size if needed */
+            line-height: 1.6;
+        }
+        
+        /* Image on the right side */
+        .image-right {
+            width: 20%; /* 20% width for image */
+        }
+        
+        .image-right img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px; /* Optional: gives the image rounded corners */
+        }
+
+        /* Animated "ECHOTELECOM" text */
+        .echotelecom {
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .echotelecom span {
+            display: inline-block;
+        }
+
+        /* Animation only for the first 5 letters */
+        .echotelecom span:nth-child(-n+5) {
+            animation: float 1s ease-in-out infinite alternate;
+        }
+
+        .echotelecom span:nth-child(odd) {
+            animation-direction: alternate-reverse;
+        }
+
+        /* Color changes for first five letters */
+        .echotelecom span:nth-child(1) { color: red; }
+        .echotelecom span:nth-child(2) { color: green; }
+        .echotelecom span:nth-child(3) { color: blue; }
+        .echotelecom span:nth-child(4) { color: orange; }
+        .echotelecom span:nth-child(5) { color: purple; }
+
+        /* Keyframes for floating animation */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        /* Section header */
+        .team-section {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Team card */
+        .team-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-top: -75px;
+            border: 5px solid white;
+        }
+
+        .team-card .card-body {
+            padding: 20px;
+        }
+
+        .team-card .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color:lightseagreen
+        }
+
+        .team-card .card-text {
+            font-size: 1rem;
+            font-family:candara;
+            color: #666;
+        }
+
+        /* Card Body Adjustments */
+        .team-card .card-body {
+            text-align: center;
+            padding-top: 85px; /* To keep text below the circular image */
+        }
+        /* Section header */
+        .partners-section {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .partners-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Scrolling logos container */
+    .partners-container {
+        width: 100vw; /* Full width of the viewport */
+        overflow: hidden; /* Hide content outside the container */
+        position: relative;
+        background-color: #f4f4f4; /* Optional background color */
+        padding: 20px 0; /* Add some padding for spacing */
+    }
+
+    .scrolling-logos {
+        display: inline-flex; /* Arrange logos horizontally */
+        animation: scroll 20s linear infinite; /* Slower scrolling animation */
+    }
+
+    .partner-logo {
+        width: 120px; /* Adjust size as needed */
+        height: auto;
+        margin: 0 20px; /* Spacing between logos */
+        object-fit: contain;
+        transition: transform 0.3s; /* Smooth hover effect */
+    }
+
+    .partner-logo:hover {
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    /* Scrolling animation */
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+        /* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Ensure the footer takes full width of the screen */
+    position: absolute;
+    bottom: 0; /* Place the footer at the bottom of the screen */
+}
+
+footer a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+h2 {
+    text-align: center; /* Horizontally centers the text */
+    font-size: 2.5rem; /* Adjust size as needed */
+    font-weight: bold; /* Makes the text bold */
+    color: #333; /* Text color */
+    margin: 20px 0; /* Adds spacing above and below */
+}
+    </style>
+</head>
+<body>
+   <!-- Navbar (Fixed at the top) -->
+<nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <!-- Left side of the navbar (Brand) -->
+      <a class="navbar-brand" href="#">ECHOTELECOM BIO</a>
+      
+      <!-- Right side of the navbar (Search form) -->
+      <form class="d-flex ms-auto">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav> 
+  
+  <div class="text-section">
+    <h1>About Us</h1>
+    <div class="content-container">
+        <div class="text-left">
+            <p1>
+                We are a forward-thinking organization dedicated to innovation and excellence.<br>
+                Our mission is to drive change in our industry by focusing on sustainable practices, advanced technologies, and community engagement. We believe in the power of collaboration and strive to create a positive impact for future generations.
+            </p1>
+            <p1>
+                Our core values include integrity, transparency, and commitment to quality. We work closely with our partners and stakeholders to deliver top-notch solutions that make a real difference.<br>
+                Join us on our journey as we continue to set new standards in our field.
+            </p1>
+            <p1>
+                To connect people, businesses, and communities through innovative, reliable, and scalable networking solutions, fostering seamless communication and driving global digital transformation.
+            </p1>
+            <p1>
+                Our mission is to be the global leader in networking technologies, shaping a connected world where every individual and organization has access to secure, high-speed communication.
+            </p1>
+        </div>
+        <div class="image-right">
+            <img src="/static/images/Network Marketing Quotes.jpg" alt="About Us Image">
+        </div>
+    </div>
+</div>
+<!-- Our Team Section -->
+<div class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Team Member 1 -->
+            <div class="col">
+                <div class="card team-card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 1">
+                    <div class="card-body">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text">Chief Executive Officer</p>
+                        <p class="card-text">John has over 20 years of experience in the telecom industry and leads our team with a passion for innovation.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="col">
+                <div class="card team-card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Mr. Kennedy Njoroge</h5>
+                        <p class="card-text">Chief Technology Officer</p>
+                        <p class="card-text">With a background in engineering, Jane drives our technological strategy and ensures we remain at the forefront of innovation.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="col">
+                <div class="card team-card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Lee</h5>
+                        <p class="card-text">Chief Operations Officer</p>
+                        <p class="card-text">Michael ensures that the operations run smoothly, managing the day-to-day activities of the organization with precision.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="partners-section">
+                <h2>Our Networking & Data Partners</h2>
+                <div class="partners-container">
+                    <div class="scrolling-logos">
+                        <!-- Cisco -->
+                        <img src="/static/images/Cisco Logo Sketch Freebie.jpg" alt="Cisco Logo" class="partner-logo">
+                        <!-- Roboflow -->
+                        <img src="/static/images/food panda.jpg" alt="Roboflow Logo" class="partner-logo">
+                        <!-- Huawei -->
+                        <img src="/static/images/Graphic Designer Replaces Wordmarks In Famous Logos With The Fonts They Use.jpg" alt="Huawei Logo" class="partner-logo">
+                        <!-- Amazon -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="partner-logo">
+                        <!-- StackOverflow -->
+                        <img src="/static/images/Stacks.jpg" alt="StackOverflow Logo" class="partner-logo">
+                        <!-- Azure -->
+                        <img src="/static/images/Microsoft Azure - VaiSulWeb.jpg" alt="Azure Logo" class="partner-logo">
+                        <!-- Infinity -->
+                        <img src="/static/images/Infinity symbol sphere shapes limitless sign logo vector image on VectorStock.jpg" alt="Infinity Logo" class="partner-logo">
+                        <!-- Discord -->
+                        <img src="/static/images/Discord Logo.jpg" alt="Discord Logo" class="partner-logo">
+                        <!-- Reddit -->
+                        <img src="/static/images/Download reddit logo png, reddit icon transparent png.jpg" alt="Reddit Logo" class="partner-logo">
+                        <!-- github -->
+                        <img src="/static/images/Primer.jpg" alt="github Logo" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+            <!-- Add more team members as needed -->
+        </div>
+    </div>
+</div>
+<div class="why-people-love-us">
+    <h2>Why People Love Us</h2>
+    <div class="circle-container">
+        <div class="circle" style="--percentage: 90;">
+            <span>90%</span>
+        </div>
+        <p class="circle-description">Customer Satisfaction</p>
+
+        <div class="circle" style="--percentage: 85;">
+            <span>85%</span>
+        </div>
+        <p class="circle-description">Reliable Services</p>
+
+        <div class="circle" style="--percentage: 80;">
+            <span>80%</span>
+        </div>
+        <p class="circle-description">Innovative Solutions</p>
+
+        <div class="circle" style="--percentage: 95;">
+            <span>95%</span>
+        </div>
+        <p class="circle-description">Customer Support</p>
+    </div>
+</div>
+<p>
+Call us</br>
++254123456789
+</p>
+</body>
+</html>

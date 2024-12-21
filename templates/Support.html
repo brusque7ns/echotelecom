@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Echotelecom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background-color: lightskyblue;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: right;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar, .navbar-nav .nav-link {
+            font-family: 'Arial', 'Helvetica', sans-serif; /* Sans-serif font */
+        }
+    
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-left: auto; /* Push links to the right */
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Page content to avoid overlap with the navbar */
+        .content {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .subheading {
+            font-size: 28px;
+            font-weight: bold;
+            color: gray;
+        }
+
+        /* Section Styles */
+        .support-section {
+            margin: 50px 0;
+        }
+
+        .support-column {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .support-columns {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .support-column h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .support-column p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Echotelecom</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('support') }}">Support</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="heading echotelecom">Echotelecom</div>
+        <div class="arrow">↓</div>
+        <div class="subheading">Support</div>
+    </div>
+
+    <!-- Support Section -->
+    <div class="support-section">
+        <h2>We are here 24/7, via phone or online!</h2>
+        <p2>Feel free to reach out to us anytime, and we will assist you with any issue.</p2>
+    </div>
+
+    <!-- Support Categories -->
+    <div class="support-columns">
+        <div class="support-column">
+            <h2>Internet Connection</h2>
+            <p class="p3">
+                Have issues with your connection? We are here to help! Our Internet Connection Team is dedicated to ensuring you experience seamless, high-speed connectivity at all times.
+                If you have any questions or need assistance, feel free to reach out to us anytime.
+                From troubleshooting network issues to optimizing your connection, we're here to keep you online and connected to what matters most
+            </p>
+            <a href="https://www.example.com" target="_blank"> Stay online with us</a>
+        </div>
+        <div class="support-column">
+            <h2>Billing Questions</h2>
+            <p class="p3">
+                Need assistance with your billing? Our team can guide you.Our Billing Team is here to make managing your account simple, transparent, and hassle-free.From resolving invoice queries to guiding you through payment options, we’re committed to ensuring a smooth billing experience.
+            </p>
+            <a href="https://www.example.com" target="_blank">invoice</a>
+        </div>
+        <div class="support-column">
+            <h2>Support Questions</h2>
+            <p class="p3">
+                For general inquiries or tech support, contact us anytime.Your satisfaction is our priority—count on us for expert assistance whenever you need it..Whether it’s troubleshooting issues or answering general questions, we’re just a call or click awayOur Support Team is dedicated to providing timely and effective solutions to all your queries.
+
+            </p>
+            <a href="https://www.example.com" target="_blank">Learn More</a>
+        </div>
+    </div>
+
+</body>
+</html>

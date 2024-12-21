@@ -1,0 +1,205 @@
+/* Apply a background image to the entire page */
+body {
+    background-size: cover;
+    background-position: center;
+    color:#1abc9c;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic Form Styles */
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Main content styling */
+.main-content {
+    text-align: center;
+    padding: 50px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Subscription box styling */
+.subscription-box {
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Different background colors for each subscription box */
+.subscription-box:nth-child(1) { background-color: #3498db; } /* Blue */
+.subscription-box:nth-child(2) { background-color: #2ecc71; } /* Green */
+.subscription-box:nth-child(3) { background-color: #f39c12; } /* Orange */
+.subscription-box:nth-child(4) { background-color: #e74c3c; } /* Red */
+.subscription-box:nth-child(5) { background-color: #9b59b6; } /* Purple */
+.subscription-box:nth-child(6) { background-color: #f1c40f; } /* Yellow */
+.subscription-box:nth-child(7) { background-color: #1abc9c; } /* Teal */
+.subscription-box:nth-child(8) { background-color: #34495e; } /* Dark Gray */
+.subscription-box:nth-child(9) { background-color: #e67e22; } /* Carrot */
+.subscription-box:nth-child(10) { background-color: #95a5a6; } /* Grey */
+
+.subscription-box h3 {
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+
+.subscription-box p {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.subscription-box:hover {
+    transform: scale(1.05); /* Slight zoom effect when hovered */
+}
+
+/* Styling for the subscription button */
+button.subscribe-btn {
+    background-color: white; /* Default background for buttons */
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #3498db;
+    cursor: pointer;
+}
+
+/* Button colors remain consistent, you can change this if you'd like each button to match the box */
+button.subscribe-btn:hover {
+    background-color: #c71b32; /* Hover color */
+    color: white;
+}
+
+/* Phone number and PIN form styling */
+#phoneNumberForm, #pinForm {
+    display: none;
+}
+
+#phoneNumberForm input, #pinForm input {
+    margin: 10px;
+    padding: 10px;
+}
+
+#pinForm input {
+    width: 60%;
+}
+
+/* Subscription form button styles */
+button.subscribe-btn {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #3498db;
+    cursor: pointer;
+}
+
+button.subscribe-btn:hover {
+    background-color: #c71b32;
+    color: white;
+}
+/* Animated "ECHOTELECOM" text */
+.echotelecom {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    display: flex;
+}
+
+.echotelecom span {
+    display: inline-block;
+}
+
+.echotelecom span:nth-child(-n+5) {
+    animation: float 1s ease-in-out infinite alternate;
+}
+
+.echotelecom span:nth-child(odd) {
+    animation-direction: alternate-reverse;
+}
+
+.echotelecom span:nth-child(1) { color: red; }
+.echotelecom span:nth-child(2) { color: green; }
+.echotelecom span:nth-child(3) { color: blue; }
+.echotelecom span:nth-child(4) { color: orange; }
+.echotelecom span:nth-child(5) { color: purple; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.payment-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.payment-option {
+    text-align: center;
+}
+
+.payment-option a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.payment-option a:hover p {
+    color: #007bff; /* Optional hover text color */
+}
+
+.payment-option i {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s;
+}
+
+.payment-option i:hover {
+    transform: scale(1.1);
+}
+
+/* Individual branding colors for icons */
+.paypal-icon {
+    color: #003087; /* PayPal blue */
+}
+
+.credit-card-icon {
+    color: #444444; /* Neutral dark gray for credit cards */
+}
+
+.stripe-icon {
+    color: #635bff; /* Stripe purple */
+}
+
+.mpesa-icon {
+    color: #34b233; /* MPesa green */
+}
+
+.cashapp-icon {
+    color: #00c244; /* CashApp green */
+}
+
+.payment-option p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}

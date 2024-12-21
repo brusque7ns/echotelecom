@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="static/style.css"> <!-- Add the link to your CSS file -->
+</head>
+<body>
+    <div class="main-content">
+        <h2>Confirm Payment for {{ speed }} - KSh {{ price }}</h2>
+        <form action="/process_payment" method="POST">
+            <input type="hidden" name="speed" value="{{ speed }}">
+            <input type="hidden" name="price" value="{{ price }}">
+            
+            <label for="phone_number">Enter your Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+            <label for="pin">Enter PIN:</label>
+            <input type="password" id="pin" name="pin" required><br><br>
+
+            <button type="submit">Confirm Payment</button>
+        </form>
+    </div>
+</body>
+</html>

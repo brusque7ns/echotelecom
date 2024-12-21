@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Subscriptions</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        /* Apply a background image to the entire page */
+        body {
+            background-image: url('/static/images/Autonomous driving button for HMI (2).gif'); /* Add your image path here */
+            background-size: cover;
+            background-position: center;
+            color:#1abc9c;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        function showPhoneNumberForm(speed, price) {
+            document.getElementById('subscriptionDetails').style.display = 'none';
+            document.getElementById('phoneNumberForm').style.display = 'block';
+            document.getElementById('speed').value = speed;
+            document.getElementById('price').value = price;
+        }
+
+        function showPinForm() {
+            document.getElementById('phoneNumberForm').style.display = 'none';
+            document.getElementById('pinForm').style.display = 'block';
+        }
+
+        function submitPhoneNumberForm(event) {
+            event.preventDefault();
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (phoneNumber) {
+                showPinForm();
+            } else {
+                alert('Please enter a valid phone number.');
+            }
+        }
+
+        function submitPinForm(event) {
+            event.preventDefault();
+            const pin = document.getElementById('pin').value;
+            const correctPin = '1234'; // Example PIN validation
+            if (pin === correctPin) {
+                alert('Payment successful! Your WiFi subscription is now active.');
+            } else {
+                alert('Invalid PIN. Payment failed.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content">
+        <h2>WiFi Subscriptions</h2>
+        <p>Monthly Subscription Charges</p>
+
+        <!-- Subscription boxes -->
+        <div id="subscriptionDetails">
+            {% set colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#16a085', '#d35400', '#7f8c8d', '#34495e'] %}
+            {% for speed, price in subscriptions.items() %}
+                <div class="subscription-box" style="background-color: {{ colors[loop.index0 % colors|length] }};" onclick="showPhoneNumberForm('{{ speed }}', '{{ price }}')">
+                    <h3>{{ speed }}</h3>
+                    <p>{{ price }} KSH/month</p>
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Phone Number Form -->
+        <div id="phoneNumberForm" style="display:none;">
+            <h2>Enter your phone number to confirm your subscription</h2>
+            <form onsubmit="submitPhoneNumberForm(event)">
+                <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+                <input type="hidden" id="speed" name="speed">
+                <input type="hidden" id="price" name="price">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- PIN Form -->
+        <div id="pinForm" style="display:none;">
+            <h2>Enter your PIN to confirm payment for <span id="speedText"></span> at <span id="priceText"></span> KSH</h2>
+            <form onsubmit="submitPinForm(event)">
+                <input type="password" id="pin" placeholder="Enter PIN" required>
+                <button type="submit">Confirm Payment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

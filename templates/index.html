@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOTELECOM</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Popups -->
+    <div class="popup middle" id="popup1">Your Trusted Partner for High-Performance Networks!</div>
+    <div class="popup left" id="popup2">Reliable, High-Quality Network Hardware & Software to Keep You Connected!</div>
+    <div class="popup right" id="popup3">Get in Touch with Our Experts for Tailored Network Solutions!</div>
+
+    <!-- Main Content Sections -->
+    <section id="home">Welcome to ECHOTELECOM</section>
+    <section id="about">About Us</section>
+    <section id="products">Our Products</section>
+    <section id="services">Our Services</section>
+    <section id="contact">Contact Us</section>
+
+    <!-- Link to external JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
