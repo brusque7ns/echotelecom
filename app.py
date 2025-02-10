@@ -76,9 +76,5 @@ def process_payment():
         app.logger.error(f"Error processing payment: {e}")
         return jsonify({"message": "Internal server error", "success": False}), 500
 
-# Required for Vercel
-def handler(event, context):
-    return app(event, context)
-
 if __name__ == '__main__':
     app.run(debug=True)
