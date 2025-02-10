@@ -10,7 +10,7 @@
     <style>
         /* Navbar Styling */
         .navbar {
-            background-color: lightskyblue;
+            background-color: #33dfdd;
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -46,7 +46,7 @@
         }
 
         .navbar-nav .nav-link {
-            color: white;
+            color:#7c7473;
             text-decoration: none;
             font-weight: bold;
         }
@@ -179,7 +179,7 @@
                 <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+                <a class="nav-link" href="{{ url_for('packages') }}">Packages</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
@@ -252,6 +252,27 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <h1 class="text-center">Understanding Machine Learning</h1>
+        <div class="description">
+            <h3>What is Machine Learning?</h3>
+            <p class="p5">Machine learning is a branch of artificial intelligence that enables systems to learn and make decisions without explicit programming. It works by training models on large datasets to recognize patterns and make predictions.</p>
+            
+            <h3>How Are Models Trained?</h3>
+            <p class="p5">Machine learning models are trained using data. The process typically involves:</p>
+            <ul>
+                <li>Collecting and preparing data.</li>
+                <li>Feeding data into the algorithm.</li>
+                <li>Adjusting parameters to improve accuracy.</li>
+                <li>Testing and validating the model.</li>
+            </ul>
+        </div>
+        <div class="image-section text-center">
+            <h3>Machine Learning in Action</h3>
+            <p5 class="text-muted">An example of a neural network model used in machine learning.</p5>
+        </div>
+    </div>
+
     <div class="statement-container">
         <p class="statement">Computer Vision, IoT, and AI are the future of technology and crypto</p>
     </div>
