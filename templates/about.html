@@ -167,12 +167,12 @@
         }
         /* Section header */
         .partners-section {
-            padding: 50px 0;
             text-align: center;
             background-color: #f4f4f4;
         }
 
         .partners-section h2 {
+            text-align: center;
             font-size: 2.5rem;
             margin-bottom: 30px;
         }
@@ -212,25 +212,61 @@
             transform: translateX(-100%);
         }
     }
-        /* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%; /* Ensure the footer takes full width of the screen */
-    position: absolute;
-    bottom: 0; /* Place the footer at the bottom of the screen */
-}
+        
+    /* Footer Styling */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 60px 0;
+        }
 
-footer a {
-    color: lightblue;
-    text-decoration: none;
-}
+        .footer .row {
+            margin: 0;
+        }
 
-footer a:hover {
-    text-decoration: underline;
-}
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .footer .social-icons i {
+            color: #dcdcdc;
+        }
+        /* Footer Customization */
+    .echotelecom-footer {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .echotelecom-letter {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px; /* Space between letters */
+    }
+
 h2 {
     text-align: center; /* Horizontally centers the text */
     font-size: 2.5rem; /* Adjust size as needed */
@@ -281,7 +317,8 @@ h2 {
 </div>
 <!-- Our Team Section -->
 <div class="team-section">
-    <h2>Meet Our Team</h2>
+    <h2>Meet Our Team</h2><br>
+    <br>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Team Member 1 -->
@@ -289,9 +326,9 @@ h2 {
                 <div class="card team-card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 1">
                     <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <p class="card-text">Chief Executive Officer</p>
-                        <p class="card-text">John has over 20 years of experience in the telecom industry and leads our team with a passion for innovation.</p>
+                        <h5 class="card-title">Mary w. Kinyua</h5>
+                        <p class="card-text">Human Resource Manager</p>
+                        <p class="card-text"> Madam Mary has over 10 years of experience in the telecom industry and leads our team with a passion for innovation.</p>
                     </div>
                 </div>
             </div>
@@ -301,8 +338,8 @@ h2 {
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 2">
                     <div class="card-body">
                         <h5 class="card-title">Mr. Kennedy Njoroge</h5>
-                        <p class="card-text">Chief Technology Officer</p>
-                        <p class="card-text">With a background in engineering, Jane drives our technological strategy and ensures we remain at the forefront of innovation.</p>
+                        <p class="card-text">Operations Manager</p>
+                        <p class="card-text">Mr. Kennedy ensures that the operations run smoothly, managing the day-to-day activities of the organization with precision.</p>
                     </div>
                 </div>
             </div>
@@ -311,36 +348,9 @@ h2 {
                 <div class="card team-card">
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Team Member 3">
                     <div class="card-body">
-                        <h5 class="card-title">Michael Lee</h5>
-                        <p class="card-text">Chief Operations Officer</p>
-                        <p class="card-text">Michael ensures that the operations run smoothly, managing the day-to-day activities of the organization with precision.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="partners-section">
-                <h2>Our Networking & Data Partners</h2>
-                <div class="partners-container">
-                    <div class="scrolling-logos">
-                        <!-- Cisco -->
-                        <img src="/static/images/Cisco Logo Sketch Freebie.jpg" alt="Cisco Logo" class="partner-logo">
-                        <!-- Roboflow -->
-                        <img src="/static/images/food panda.jpg" alt="Roboflow Logo" class="partner-logo">
-                        <!-- Huawei -->
-                        <img src="/static/images/Graphic Designer Replaces Wordmarks In Famous Logos With The Fonts They Use.jpg" alt="Huawei Logo" class="partner-logo">
-                        <!-- Amazon -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="partner-logo">
-                        <!-- StackOverflow -->
-                        <img src="/static/images/Stacks.jpg" alt="StackOverflow Logo" class="partner-logo">
-                        <!-- Azure -->
-                        <img src="/static/images/Microsoft Azure - VaiSulWeb.jpg" alt="Azure Logo" class="partner-logo">
-                        <!-- Infinity -->
-                        <img src="/static/images/Infinity symbol sphere shapes limitless sign logo vector image on VectorStock.jpg" alt="Infinity Logo" class="partner-logo">
-                        <!-- Discord -->
-                        <img src="/static/images/Discord Logo.jpg" alt="Discord Logo" class="partner-logo">
-                        <!-- Reddit -->
-                        <img src="/static/images/Download reddit logo png, reddit icon transparent png.jpg" alt="Reddit Logo" class="partner-logo">
-                        <!-- github -->
-                        <img src="/static/images/Primer.jpg" alt="github Logo" class="partner-logo">
+                        <h5 class="card-title">Bruno Omondi</h5>
+                        <p class="card-text">Technology Enthusiast</p>
+                        <p class="card-text">With a background in Software engineering, Bruno drives our technological strategy and ensures we remain at the forefront of innovation.</p>
                     </div>
                 </div>
             </div>
@@ -351,30 +361,133 @@ h2 {
 <div class="why-people-love-us">
     <h2>Why People Love Us</h2>
     <div class="circle-container">
-        <div class="circle" style="--percentage: 90;">
-            <span>90%</span>
+        <div class="circle" style="--percentage: 100;">
+            <span>100%</span>
         </div>
         <p class="circle-description">Customer Satisfaction</p>
-
-        <div class="circle" style="--percentage: 85;">
-            <span>85%</span>
-        </div>
-        <p class="circle-description">Reliable Services</p>
-
-        <div class="circle" style="--percentage: 80;">
-            <span>80%</span>
-        </div>
-        <p class="circle-description">Innovative Solutions</p>
 
         <div class="circle" style="--percentage: 95;">
             <span>95%</span>
         </div>
+        <p class="circle-description">Reliable Services</p>
+
+        <div class="circle" style="--percentage: 90;">
+            <span>90%</span>
+        </div>
+        <p class="circle-description">Innovative Solutions</p>
+
+        <div class="circle" style="--percentage: 100;">
+            <span>100%</span>
+        </div>
         <p class="circle-description">Customer Support</p>
     </div>
 </div>
-<p>
-Call us</br>
-+254123456789
-</p>
+<div class="partners-section">
+    <h2>Our Networking & Data Partners</h2>
+    <div class="partners-container">
+        <div class="scrolling-logos">
+            <!-- Cisco -->
+            <img src="/static/images/Cisco Logo Sketch Freebie.jpg" alt="Cisco Logo" class="partner-logo">
+            <!-- Roboflow -->
+            <img src="/static/images/food panda.jpg" alt="Roboflow Logo" class="partner-logo">
+            <!-- Huawei -->
+            <img src="/static/images/Graphic Designer Replaces Wordmarks In Famous Logos With The Fonts They Use.jpg" alt="Huawei Logo" class="partner-logo">
+            <!-- Amazon -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="partner-logo">
+            <!-- StackOverflow -->
+            <img src="/static/images/Stacks.jpg" alt="StackOverflow Logo" class="partner-logo">
+            <!-- Azure -->
+            <img src="/static/images/Microsoft Azure - VaiSulWeb.jpg" alt="Azure Logo" class="partner-logo">
+            <!-- Infinity -->
+            <img src="/static/images/Infinity symbol sphere shapes limitless sign logo vector image on VectorStock.jpg" alt="Infinity Logo" class="partner-logo">
+            <!-- Discord -->
+            <img src="/static/images/Discord Logo.jpg" alt="Discord Logo" class="partner-logo">
+            <!-- Reddit -->
+            <img src="/static/images/Download reddit logo png, reddit icon transparent png.jpg" alt="Reddit Logo" class="partner-logo">
+            <!-- github -->
+            <img src="/static/images/Primer.jpg" alt="github Logo" class="partner-logo">
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-md-3">
+                <h5>ECHOTELECOM</h5>
+                <p7>We offer the best to our customers at all times.</p7>
+                <p7>We use up-to-date technologies to ensure efficiency, reliability, and accountability for our customers.</p7>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('packages') }}" class="text-white">packages</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="text-white">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Products Section -->
+            <div class="col-md-3">
+                <h5>Products</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('products') }}" class="text-white">Product 1</a></li>
+                    <li><a href="{{ url_for('products') }}" class="text-white">Product 2</a></li>
+                    <li><a href="{{ url_for('products') }}" class="text-white">Product 3</a></li>
+                </ul>
+            </div>
+            <!-- Community Section -->
+            <div class="col-md-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('community') }}" class="text-white">Join the Community</a></li>
+                    <li><a href="{{ url_for('projects') }}" class="text-white">Our Projects</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Contact Section -->
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <ul class="list-unstyled">
+                    <li>+254123456789</li>
+                    <li><a href="{{ url_for('contact') }}" class="text-white">Contact Form</a></li>
+                    <li><a href="#" class="text-white">Call Us</a></li>
+                    <li><a href="#" class="text-white">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+          <!-- Footer -->
+<footer class="text-center py-4" style="font-family: Monaco, monospace;">
+    <div class="echotelecom-footer">
+        <span class="echotelecom-letter" style="color: red;">E</span>
+        <span class="echotelecom-letter" style="color: orange;">C</span>
+        <span class="echotelecom-letter" style="color: yellow;">H</span>
+        <span class="echotelecom-letter" style="color: green;">O</span>
+        <span class="echotelecom-letter" style="color: blue;">T</span>
+        <span class="echotelecom-letter" style="color: purple;">E</span>
+        <span class="echotelecom-letter" style="color: pink;">L</span>
+        <span class="echotelecom-letter" style="color: teal;">E</span>
+        <span class="echotelecom-letter" style="color: brown;">C</span>
+        <span class="echotelecom-letter" style="color: violet;">O</span>
+        <span class="echotelecom-letter" style="color: indigo;">M</span>
+    </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="mt-3">&copy; 2024 ECHOTELECOM. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Font Awesome for social media icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
