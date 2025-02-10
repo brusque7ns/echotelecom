@@ -274,16 +274,21 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="echotelecom">
+    <div class="container d-flex align-items-center">
+        <!-- Animated Logo -->
+        <div class="echotelecom mr-3">
             <span>E</span><span>C</span><span>H</span><span>O</span><span>T</span><span>E</span><span>L</span><span>E</span><span>C</span><span>O</span><span>M</span>
         </div>
+        
+        <!-- Navbar Toggle for Mobile -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+
+        <!-- Navbar Items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
@@ -308,7 +313,9 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!-- Carousel Section -->
     <div class="container-background">
