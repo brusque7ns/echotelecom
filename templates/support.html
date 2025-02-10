@@ -8,7 +8,7 @@
     <style>
         /* Navbar Styling */
         .navbar {
-            background-color: lightskyblue;
+            background-color: #FF5733;
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -44,7 +44,7 @@
         }
 
         .navbar-nav .nav-link {
-            color: white;
+            color: #7c7473;
             text-decoration: none;
             font-weight: bold;
         }
@@ -100,6 +100,59 @@
             font-size: 18px;
             color: #555;
         }
+        /* Footer Styling */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer .row {
+            margin: 0;
+        }
+
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .footer .social-icons i {
+            color: #dcdcdc;
+        }
+        /* Footer Customization */
+    .echotelecom-footer {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .echotelecom-letter {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px; /* Space between letters */
+    }
     </style>
 </head>
 <body>
@@ -118,7 +171,7 @@
                 <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('services') }}">Services</a>
+                <a class="nav-link" href="{{ url_for('packages') }}">Packages</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
@@ -130,11 +183,6 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="content">
-        <div class="heading echotelecom">Echotelecom</div>
-        <div class="arrow">↓</div>
-        <div class="subheading">Support</div>
-    </div>
 
     <!-- Support Section -->
     <div class="support-section">
@@ -169,6 +217,81 @@
             <a href="https://www.example.com" target="_blank">Learn More</a>
         </div>
     </div>
-
+ <!-- Footer -->
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-md-3">
+                <h5>ECHOTELECOM</h5>
+                <ul>
+                    <p> Echotelecom we offer the best to our customers at all times</p><br>
+                    <p> we use upto date technologies to ensure effeciency and reliabity together with accountability to our customers</p>
+                    <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                    <li><a href="{{ url_for('contact') }}">contact</a></li>
+                    
+                </ul>
+            </div>
+            <!-- Products Section -->
+            <div class="col-md-3">
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="{{ url_for('products') }}">Product 1</a></li>
+                    <li><a href="{{ url_for('products') }}">Product 2</a></li>
+                    <li><a href="{{ url_for('products') }}">Product 3</a></li>
+                </ul>
+            </div>
+            <!-- Community Section -->
+            <div class="col-md-3">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="{{ url_for('community') }}">Join the Community</a></li>
+                    <li><a href="{{ url_for('projects') }}">Our Projects</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                    <li><a href="{{url_for('careers')}}">Careers</a></li>
+                </ul>
+            </div>
+            <!-- Contact Section -->
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <ul>
+                    <li> +254123456789</li>
+                    <li><a href="{{ url_for('contact') }}">Contact Form</a></li>
+                    <li><a href="#">Call Us</a></li>
+                    <li><a href="#">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+<!-- Footer -->
+<footer class="text-center py-4" style="font-family: Monaco, monospace;">
+<div class="echotelecom-footer">
+    <span class="echotelecom-letter" style="color: red;">E</span>
+    <span class="echotelecom-letter" style="color: orange;">C</span>
+    <span class="echotelecom-letter" style="color: yellow;">H</span>
+    <span class="echotelecom-letter" style="color: green;">O</span>
+    <span class="echotelecom-letter" style="color: blue;">T</span>
+    <span class="echotelecom-letter" style="color: purple;">E</span>
+    <span class="echotelecom-letter" style="color: pink;">L</span>
+    <span class="echotelecom-letter" style="color: teal;">E</span>
+    <span class="echotelecom-letter" style="color: brown;">C</span>
+    <span class="echotelecom-letter" style="color: violet;">O</span>
+    <span class="echotelecom-letter" style="color: indigo;">M</span>
+</div>
+        <hr class="bg-light">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="mt-3">&copy; 2024 ECHOTELECOM. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Font Awesome for social media icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
