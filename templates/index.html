@@ -3,144 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echotelecom - Home</title>
-    <link rel="stylesheet" href="static/styles.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>ECHOTELECOM</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
     <style>
-        /* Reset and General Styling */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            background-color: #add8e6;
         }
 
         /* Navbar Styling */
         .navbar {
-            background-color: lightskyblue;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
             position: fixed;
-            top: 0;
             width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
+            z-index: 10;
         }
 
         .navbar-nav {
-            list-style: none;
             display: flex;
+            list-style: none;
             margin: 0;
             padding: 0;
-            margin-left: auto;
         }
 
-        .nav-item {
+        .navbar-nav .nav-item {
             margin: 0 15px;
         }
 
-        .nav-link {
-            text-decoration: none;
+        .navbar-nav .nav-link {
             color: white;
-            font-size: 16px;
+            text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: #f1f1f1;
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
         }
 
-        /* Main Section */
+        /* Container just below the Navbar with a different background */
+        .container-background {
+            position: relative;
+            padding: 100px 0;
+            background-color: #f0f8ff; /* Different background color for the container */
+            color: white;
+            z-index: 1;
+            min-height: 300px; /* Set a height to ensure content is visible */
+        }
+
         .main-content {
-            margin-top: 70px; /* Offset for fixed navbar */
-            padding: 50px 20px;
+            padding: 20px;
             text-align: center;
-            background-image: url('/static/images/background.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            color: white;
+            margin-top: 90px; /* Adjust for fixed navbar height */
         }
 
-        .main-content h1 {
-            font-size: 36px;
+        /* New section for text and images */
+        .text-image-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
         }
 
-        .main-content p {
-            font-size: 18px;
+        .text-section {
+            flex: 1;
+            padding-right: 30px;
+            text-align: left;
         }
 
-        /* Call-to-action button */
-        .cta-button {
-            display: inline-block;
-            background-color: #1abc9c;
-            color: white;
-            padding: 12px 24px;
-            font-size: 18px;
-            border-radius: 5px;
-            text-decoration: none;
+        .text-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .text-section p {
+            font-size: 1.2rem;
             margin-top: 20px;
         }
 
-        .cta-button:hover {
-            background-color: #16a085;
+        .image-section {
+            flex: 1;
+            display: flex;
+            gap: 20px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
+        .image-section img {
             width: 100%;
-            bottom: 0;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
         }
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-family:papyrus;
+            font-size: 4rem; /* Larger font size */
+            font-weight: bold; /* Bold font */
+            padding: 20px;
+            width: 80%; /* Adjust width as needed */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add text shadow for better visibility */
+            white-space: normal; /* Allow text to wrap */
+            word-wrap: break-word; /* Break long words if necessary */
+            background-color: transparent; /* Remove background */
+            border-radius: 0; /* Remove border radius */
+        }
+        .image-text-section img {
+            width: 25%; /* Image takes up 25% of the width */
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-left: 40px; /* Spacing between the image and text */
+            text-align: right;
+        }
+
+        .text-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .text-section p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        /* Benefits Section */
+        .benefits-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            width: 90%; /* Increase the width of the benefits section */
+            margin: 0 auto; /* Center the container */
+            border-radius: 15px; /* Rounded corners for the benefits section */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add shadow to the container */
+        }
+
+        .benefit-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .benefit-item i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .benefit-item h4 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: lightskyblue;
+        }
+
+        .benefit-item p {
+            font-size: 1.5rem;
+            font-family:papyrus;
+            color: #555;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer .row {
+            margin: 0;
+        }
+
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .footer .social-icons i {
+            color: #dcdcdc;
+        }
+        /* Footer Customization */
+    .echotelecom-footer {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .echotelecom-letter {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px; /* Space between letters */
+    }
+
     </style>
+    <script>
+        function payWith(method) {
+            switch (method) {
+                case 'paypal':
+                    alert("Redirecting to PayPal...");
+                    window.location.href = "https://www.paypal.com/";
+                    break;
+        
+                case 'credit_card':
+                    alert("Redirecting to Credit Card Payment...");
+                    window.location.href = "https://www.example.com/credit-card-payment";
+                    break;
+        
+                case 'stripe':
+                    alert("Redirecting to Stripe...");
+                    window.location.href = "https://www.stripe.com/";
+                    break;
+        
+                case 'mpesa':
+                    alert("Redirecting to MPesa...");
+                    // Redirect to your MPesa payment instructions or integration link
+                    window.location.href = "https://www.example.com/mpesa-payment";
+                    break;
+        
+                case 'cashapp':
+                    alert("Redirecting to CashApp...");
+                    // Redirect to CashApp payment instructions or integration
+                    window.location.href = "https://cash.app/";
+                    break;
+        
+                default:
+                    alert("Unknown payment method!");
+            }
+        
+            // Simulate a success message (for demo purposes)
+            setTimeout(() => {
+                alert("Payment Successful!");
+            }, 3000);
+        }
+        
+    </script>
+    
 </head>
 <body>
+
     <!-- Navbar -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">Echotelecom</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('Packages') }}">Packages</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('support') }}">Support</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="echotelecom">
+            <span>E</span><span>C</span><span>H</span><span>O</span><span>T</span><span>E</span><span>L</span><span>E</span><span>C</span><span>O</span><span>M</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Packages') }}">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('support') }}">Support</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Payment Button -->
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">Purchase</button>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to Echotelecom</h1>
-        <p>Your trusted provider of reliable internet and communication solutions.</p>
-        <a href="{{ url_for('Packages') }}" class="cta-button">View Packages</a>
+    <!-- Carousel Section -->
+    <div class="container-background">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-block w-100" style="background-image: url('/static/images/MIMO Outdoor 18dBi Sector Antenna for Base Station with N Female Type Connector-5400-6000MHz.jpg'); height: 400px; background-size: cover; background-position: center;">
+                        <div class="carousel-caption">
+                            <p>Your Trusted Partner for High-Performance Networks!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100" style="background-image: url('/static/images/How to Transfer Data From Android to Android Via Bluetooth.jpg'); height: 400px; background-size: cover; background-position: center;">
+                        <div class="carousel-caption">
+                            <p>Reliable, High-Quality Network Hardware & Software!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100" style="background-image: url('/static/images/db1ba0e4-4b8a-4aa6-9358-4af5adb82da8.jpg'); height: 400px; background-size: cover; background-position: center;">
+                        <div class="carousel-caption">
+                            <p>Contact us for Tailored Network Solutions!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
 
+    <!-- New Section with Text and Images -->
+    <div class="container">
+        <div class="text-image-section">
+            <!-- Left Section (Text) -->
+            <div class="text-section">
+                <h2>Enhance Your Network Experience with ECHOTELECOM</h2>
+                <p>We are committed to providing the most advanced and reliable network solutions, ensuring your business operates at full potential. Our solutions include top-notch network hardware, software, and tailored services.</p>
+            </div>
+
+            <!-- Right Section (Images) -->
+            <div class="image-section">
+                <img src="/static/images/MIMO Outdoor 18dBi Sector Antenna for Base Station with N Female Type Connector-5400-6000MHz.jpg" alt="Image 1">
+                <img src="/static/images/How to Transfer Data From Android to Android Via Bluetooth.jpg" alt="Image 2">
+            </div>
+        </div>
+    </div>
+<!-- New Section with Image to the Left and Text to the Right -->
+<div class="container">
+    <div class="image-text-section">
+        <!-- Left Section (Image) -->
+        <img src="/static/images/MIMO Outdoor 18dBi Sector Antenna for Base Station with N Female Type Connector-5400-6000MHz.jpg" alt="Image" />
+
+        <!-- Right Section (Text) -->
+        <div class="text-section">
+            <h2>Reliable Network Solutions</h2>
+            <p>At ECHOTELECOM, we provide cutting-edge network solutions to enhance your business operations. Our expertise lies in delivering high-performance network hardware and customized software that guarantees the best results for your business.</p>
+        </div>
+    </div>
+</div>
+<!-- Benefits Section -->
+<div class="benefits-section container">
+    <div class="row">
+        <div class="col-md-4 benefit-item">
+            <i class="bi bi-speedometer2"></i>
+            <h4>Super Fast Speed</h4>
+            <p>Experience ultra-fast internet speeds that ensure seamless browsing and high-speed downloads.</p>
+        </div>
+        <div class="col-md-4 benefit-item">
+            <i class="bi bi-wifi"></i>
+            <h4>Wi-Fi Hotspot</h4>
+            <p>Connect to our wide range of Wi-Fi hotspots to stay connected wherever you go.</p>
+        </div>
+        <div class="col-md-4 benefit-item">
+            <i class="bi bi-card-checklist"></i>
+            <h4>Customized Packages</h4>
+            <p>Choose from a variety of tailored packages that fit your business or personal needs perfectly.</p>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <!-- Payment Modal -->
+   <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Choose Payment Method</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="payment-options">
+                <div class="payment-option">
+                  <a href="#" onclick="payWith('paypal')">
+                    <i class="fab fa-paypal fa-2x paypal-icon"></i>
+                    <p>PayPal</p>
+                  </a>
+                </div>
+                <div class="payment-option">
+                  <a href="#" onclick="payWith('credit_card')">
+                    <i class="fas fa-credit-card fa-2x credit-card-icon"></i>
+                    <p>Credit Card</p>
+                  </a>
+                </div>
+                <div class="payment-option">
+                  <a href="#" onclick="payWith('stripe')">
+                    <i class="fab fa-stripe fa-2x stripe-icon"></i>
+                    <p>Stripe</p>
+                  </a>
+                </div>
+                <div class="payment-option">
+                  <a href="#" onclick="payWith('mpesa')">
+                    <i class="fas fa-mobile-alt fa-2x mpesa-icon"></i>
+                    <p>MPesa</p>
+                  </a>
+                </div>
+                <div class="payment-option">
+                  <a href="#" onclick="payWith('cashapp')">
+                    <i class="fas fa-dollar-sign fa-2x cashapp-icon"></i>
+                    <p>CashApp</p>
+                  </a>
+                </div>
+              </div>
+              
+              
+        </div>
+    </div>
+</div>
+
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Echotelecom. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-3">
+                    <h5>ECHOTELECOM</h5>
+                    <ul>
+                        <p> Echotelecom we offer the best to our customers at all times</p><br>
+                        <p> we use upto date technologies to ensure effeciency and reliabity together with accountability to our customers</p>
+                        <li><a href="{{ url_for('Packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('contact') }}">contact</a></li>
+                        
+                    </ul>
+                </div>
+                <!-- Products Section -->
+                <div class="col-md-3">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="{{ url_for('products') }}">Product 1</a></li>
+                        <li><a href="{{ url_for('products') }}">Product 2</a></li>
+                        <li><a href="{{ url_for('products') }}">Product 3</a></li>
+                    </ul>
+                </div>
+                <!-- Community Section -->
+                <div class="col-md-3">
+                    <h5>Community</h5>
+                    <ul>
+                        <li><a href="{{ url_for('community') }}">Join the Community</a></li>
+                        <li><a href="{{ url_for('projects') }}">Our Projects</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                        <li><a href="{{url_for('careers')}}">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li> +254123456789</li>
+                        <li><a href="{{ url_for('contact') }}">Contact Form</a></li>
+                        <li><a href="#">Call Us</a></li>
+                        <li><a href="#">Email Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Blog</h5>
+                    <ul>
+                        <li><a href="{{ url_for('Blog') }}">View Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+  <!-- Footer -->
+<footer class="text-center py-4" style="font-family: Monaco, monospace;">
+    <div class="echotelecom-footer">
+        <span class="echotelecom-letter" style="color: red;">E</span>
+        <span class="echotelecom-letter" style="color: orange;">C</span>
+        <span class="echotelecom-letter" style="color: yellow;">H</span>
+        <span class="echotelecom-letter" style="color: green;">O</span>
+        <span class="echotelecom-letter" style="color: blue;">T</span>
+        <span class="echotelecom-letter" style="color: purple;">E</span>
+        <span class="echotelecom-letter" style="color: pink;">L</span>
+        <span class="echotelecom-letter" style="color: teal;">E</span>
+        <span class="echotelecom-letter" style="color: brown;">C</span>
+        <span class="echotelecom-letter" style="color: violet;">O</span>
+        <span class="echotelecom-letter" style="color: indigo;">M</span>
+    </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="mt-3">&copy; 2024 ECHOTELECOM. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
 </body>
 </html>
