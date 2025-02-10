@@ -1,320 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-      <!-- Include Unicons for Icons -->
-      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-  
-      <!-- Include Font Awesome for Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Contact Us</title>
-</head>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color:#f4f4f4; /* Unified background color */
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: white-smoke;
+            overflow-x: hidden;
         }
 
-        /* Left Column (Social Icons) */
-        .left-column {
-            width: 15%; /* Occupies 15% of the screen */
-            height: 100vh;
-            padding: 10px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            background-color: #ffffff; /* Matching background color */
+        /* Navbar Styling */
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
             position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
+            z-index: 10;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px; /* Reduced space between icons */
         }
 
-        .home__social-icon {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 24px;
-            transition: transform 0.3s;
-            color: inherit;
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .home__social-icon:hover {
-            transform: scale(1.2);
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #7c7473;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
         }
 
         /* Main Content */
         .content {
-            text-align: center;
-            margin-left: 16%; /* To avoid overlap with the left column */
-            margin-top: 50px;
+            margin-top: 70px; /* Adjust for fixed navbar */
+            padding: 20px;
         }
 
-        .social-container {
+        /* Get in Touch Container */
+        .get-in-touch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .get-in-touch .column {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .get-in-touch .column h3 {
+            margin-top: 10px;
+        }
+
+        .get-in-touch .column p {
+            margin: 5px 0;
+        }
+
+        .get-in-touch .column a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Vertical Social Icons Floating at the Bottom Right */
+        .vertical-social-container {
             position: fixed;
-            bottom: 20px; /* Adjust this for vertical spacing */
-            right: 20px; /* Adjust this for horizontal spacing */
+            bottom: 10px;
+            right: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Adjust the space between icons */
-            z-index: 1000; /* Ensure the icons are above other content */
+            gap: 10px;
+            z-index: 1000;
         }
-        
-        .social-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px; /* Icon size */
-            height: 50px; /* Icon size */
-            border-radius: 50%;
-            font-size: 1.5rem;
-            color: white;
-            background-color: #333; /* Default background color */
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        
-        .social-link:hover {
-            transform: scale(1.2); /* Slightly enlarges the icon */
-        }
-        
-        .social-link.discord {
-            background-color: #5865F2;
-        }
-        
-        .social-link.reddit {
-            background-color: #FF4500;
-        }
-        
-        .social-link.facebook {
-            background-color: #1877F2;
-        }
-        
-        .social-link.support {
-            background-color: #4CAF50;
-        }
-        
-        .social-link.x-icon {
-            background-color: #1DA1F2;
-        }
-        .footer a {
-            color: #ffffff; /* Default link color (white) */
-            text-decoration: none; /* Remove underline */
-        }
-        
-        /* Links hover color inside the footer */
-        .footer a:hover {
-            color: #00FFFF; /* Change hover color to a yellow/golden shade, adjust as needed */
-        }
-        
-        /* Social Media Icons */
-        .footer .social-icons a {
-            color: #7289DA; /* Set default icon color to white */
-            font-size: 2rem; /* Icon size */
-            margin: 50 50px; /* Space between icons */
-            transition: color 0.3s; /* Smooth hover effect */
-        }
-        
-        /* Social Icons hover color */
-        .footer .social-icons a:hover {
-            color: #00FFFF; /* Change icon color on hover to blue */
-        }
-    </style>
 
+        .vertical-social-link {
+            font-size: 24px;
+            color: #333;
+            transition: transform 0.3s;
+        }
+
+        .vertical-social-link:hover {
+            transform: scale(1.2);
+        }
+
+        .vertical-social-link.discord i { color: #5865F2; }
+        .vertical-social-link.reddit i { color: #FF4500; }
+        .vertical-social-link.facebook i { color: #1877F2; }
+        .vertical-social-link.support i { color: #FF5722; }
+        .vertical-social-link.x-icon i { color: #1DA1F2; }
+    </style>
+</head>
 <body>
-    <!-- Left Column with Social Icons -->
-    <div class="left-column">
-        <a href="https://linkedin.com/in/bruno_omondi" target="_blank" class="home__social-icon">
-            <i class="uil uil-linkedin-alt"></i>
-        </a>
-        <a href="https://stackoverflow.com/users/26699910/bruno_omondi" target="_blank" class="home__social-icon">
-            <i class="fa fa-stack-overflow"></i>
-        </a>
-        <a href="https://github.com/brusque7ns" target="_blank" class="home__social-icon">
-            <i class="uil uil-github-alt"></i>
-        </a>
-        <a href="https://medium.com/@bruno_omondi" target="_blank" class="home__social-icon">
-            <i class="uil uil-medium-m"></i>
-        </a>
-        <a href="https://medium.com/@brusquw" target="_blank" class="home__social-icon">
-            <i class="uil uil-instagram"></i>
-        </a>
-        <a href="https://facebook.com/your-profile" target="_blank" class="home__social-icon">
-            <i class="uil uil-facebook-f"></i>
-        </a>
-        <a href="https://www.tiktok.com/@your-profile" target="_blank" class="home__social-icon">
-            <i class="uil uil-tiktok"></i>
-        </a>
-        <a href="https://t.me/your-telegram-username" target="_blank" class="home__social-icon">
-            <i class="uil uil-telegram-alt"></i>
-        </a>
-        <a href="mailto:your-email@example.com" target="_blank" class="home__social-icon">
-            <i class="uil uil-envelope"></i>
-        </a>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#contact"></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('explore') }}">Explore</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('packages') }}">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('support') }}">Support</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <div class="content">
-        
-        <p class="p6">
-        Explore our features and connect with us on social media!
-        </p>
+        <p class="p6">We value your questions, feedback, and inquiries and are here to assist you. Whether you want to learn more about our services, share your thoughts, or need support, we’re just a message away. Please don’t hesitate to reach out to us through the form below or via the provided contact details. Your input is important to us, and we look forward to connecting with you!</p>
 
-<!-- Get in Touch Section -->
-<section class="get-in-touch">
-    <div class="column">
-        <h2><strong>Get In Touch</strong></h2>
-        <p class="subtext">More than 20,000 have trusted and liked Echo Telecom</p>
-    </div>
-    <div class="column">
-        <div class="location">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Visit Us</h3>
-            <p3>PO Box 1234</p3>
-        </div>
-        <div class="call-us">
-            <i class="fas fa-phone-alt"></i>
-            <h3>Call Us</h3>
-            <p3>+123 456 7890</p3>
-        </div>
-    </div>
-    <div class="column">
-        <div class="office-hours">
-            <i class="fas fa-clock"></i>
-            <h3>Office Hours</h3>
-            <p3>Mon-Fri: 9 AM - 6 PM</p3>
-        </div>
-        <div class="email-us">
-            <i class="fas fa-envelope"></i>
-            <h3>Email Us</h3>
-            <p3>contact@echotelecom.com</p3>
-        </div>
-    </div>
-</section>
-<!-- Find Us Section -->
-<section class="find-us">
-    <h2><strong>Find Us</strong></h2>
-    <p class="subtext">Our branches are conveniently located for your ease</p>
-    <div class="find-us-container">
-        <!-- Left Column: Branches -->
-        <div class="branches-column">
-            <ul class="branches">
-                <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya - Upper Hill, Block A</li>
-                <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda - Downtown Plaza</li>
-                <li><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania - City Center Towers</li>
-                <li><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa - Sandton Business Park</li>
-            </ul>
-        </div>
-        <!-- Right Column: Image -->
-        <div class="image-column">
-            <img src="{{ url_for('static', filename='images/Server Room Cooling _ North Slope Chillers.jpg') }}" alt="Echo Telecom Office" />
-        </div>
-    </div>
-</section>
-<!-- Footer -->
-<footer class="footer bg-dark text-white py-5">
-    <div class="container">
-        <!-- Footer Rows -->
-        <div class="row">
-            <!-- Column 1 -->
-            <div class="col-md-3">
-                <h5 class="text-uppercase">ECHOTELECOM</h5>
-                <p1>Echotelecom offers the best to our customers, utilizing the latest technologies to ensure efficiency and reliability.</p1>
+        <!-- Get in Touch Container -->
+        <div class="get-in-touch">
+            <div class="column">
+                <h2><strong>Get In Touch</strong></h2>
+                <p class="subtext">More than 20,000 have trusted and liked Echo Telecom</p>
             </div>
-
-            <!-- Column 2 -->
-            <div class="col-md-3">
-                <h5 class="text-uppercase">Products</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Product 1</a></li>
-                    <li><a href="#" class="text-white">Product 2</a></li>
-                    <li><a href="#" class="text-white">Product 3</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3 -->
-            <div class="col-md-3">
-                <h5 class="text-uppercase">Community</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Join the Community</a></li>
-                    <li><a href="#" class="text-white">Our Projects</a></li>
-                    <li><a href="#" class="text-white">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4 -->
-            <div class="col-md-3">
-                <h5 class="text-uppercase">Contact</h5>
-                <ul class="list-unstyled">
-                    <li>Phone: +254123456789</li>
-                    <li>Email: <a href="mailto:contact@echotelecom.com" class="text-white">contact@echotelecom.com</a></li>
-                    <li><a href="#" class="text-white">Contact Form</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Divider -->
-        <hr class="bg-light my-4">
-
-        <!-- Social Media and Copyright -->
-        <div class="row">
-            <div class="col text-center">
-                <!-- Social Media Icons -->
-                <div class="mb-3">
-                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+            <div class="column">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p class=p3><a href="https://www.google.com/maps/place/NEEMA+PLAZA,+Thika,+Kenya" target="_blank">NEEMA PLAZA, Thika, Kenya</a></p>
                 </div>
-                <p1>&copy; 2024 ECHOTELECOM. All rights reserved.</p1>
+                <div class="call-us">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p class=p3><a href="tel:+1234567890">+123 456 7890</a></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="office-hours">
+                    <i class="fas fa-clock"></i>
+                    <h3>Office Hours</h3>
+                    <p class=p3>Mon-Fri: 9 AM - 6 PM</p>
+                </div>
+                <div class="email-us">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p class=p3><a href="mailto:contact@echotelecom.com">contact@echotelecom.com</a></p>
+                </div>
             </div>
         </div>
     </div>
-</footer>
 
-</div>
-<!-- Bootstrap JS and dependencies -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Font Awesome for social media icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- Social Icons Section -->
-<div class="social-container">
-    <!-- Discord -->
-    <a href="https://discord.com/" target="_blank" class="social-link discord">
-        <i class="fab fa-discord"></i>
-    </a>
+    <!-- Vertical Social Icons Floating at the Bottom Right -->
+    <div class="vertical-social-container">
+        <a href="#" class="vertical-social-link discord"><i class="fab fa-discord"></i></a>
+        <a href="#" class="vertical-social-link reddit"><i class="fab fa-reddit"></i></a>
+        <a href="#" class="vertical-social-link facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="vertical-social-link support"><i class="fas fa-headset"></i></a>
+        <a href="#" class="vertical-social-link x-icon"><i class="fab fa-x-twitter"></i></a>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-3">
+                    <h5>ECHOTELECOM</h5>
+                    <ul>
+                        <p> Echotelecom we offer the best to our customers at all times</p><br>
+                        <p> we use upto date technologies to ensure effeciency and reliabity together with accountability to our customers</p>
+                        <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('contact') }}">contact</a></li>
+                        
+                    </ul>
+                </div>
+                <!-- Products Section -->
+                <div class="col-md-3">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="{{ url_for('products') }}">Product 1</a></li>
+                        <li><a href="{{ url_for('products') }}">Product 2</a></li>
+                        <li><a href="{{ url_for('products') }}">Product 3</a></li>
+                    </ul>
+                </div>
+                <!-- Community Section -->
+                <div class="col-md-3">
+                    <h5>Community</h5>
+                    <ul>
+                        <li><a href="{{ url_for('community') }}">Join the Community</a></li>
+                        <li><a href="{{ url_for('projects') }}">Our Projects</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                        <li><a href="{{url_for('careers')}}">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li> +254123456789</li>
+                        <li><a href="{{ url_for('contact') }}">Contact Form</a></li>
+                        <li><a href="#">Call Us</a></li>
+                        <li><a href="#">Email Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Blog</h5>
+                    <ul>
+                        <li><a href="{{ url_for('blog') }}">View Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+  <!-- Footer -->
+<footer class="text-center py-4" style="font-family: Monaco, monospace;">
+    <div class="echotelecom-footer">
+        <span class="echotelecom-letter" style="color: red;">E</span>
+        <span class="echotelecom-letter" style="color: orange;">C</span>
+        <span class="echotelecom-letter" style="color: yellow;">H</span>
+        <span class="echotelecom-letter" style="color: green;">O</span>
+        <span class="echotelecom-letter" style="color: blue;">T</span>
+        <span class="echotelecom-letter" style="color: purple;">E</span>
+        <span class="echotelecom-letter" style="color: pink;">L</span>
+        <span class="echotelecom-letter" style="color: teal;">E</span>
+        <span class="echotelecom-letter" style="color: brown;">C</span>
+        <span class="echotelecom-letter" style="color: violet;">O</span>
+        <span class="echotelecom-letter" style="color: indigo;">M</span>
+    </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="mt-3">&copy; 2024 ECHOTELECOM. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Reddit -->
-    <a href="https://www.reddit.com/" target="_blank" class="social-link reddit">
-        <i class="fab fa-reddit"></i>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/" target="_blank" class="social-link facebook">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <!-- Support -->
-    <a href="mailto:support@example.com" target="_blank" class="social-link support">
-        <i class="fas fa-headset"></i>
-    </a>
-
-    <!-- X (Twitter) -->
-    <a href="https://x.com/" target="_blank" class="social-link x-icon">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-</div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
 </body>
 </html>
