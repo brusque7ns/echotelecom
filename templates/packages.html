@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Packages</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        /* Apply a background image to the entire page */
+        body {
+            background-image: url('/static/images/Autonomous driving button for HMI (2).gif');
+            background-size: cover;
+            background-position: center;
+            color: #1abc9c;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navbar Styling */
+        .navbar {
+            background-color: #33dfdd;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #7c7473;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            margin-top: 90px; /* Adjust for fixed navbar height */
+        }
+    </style>
+    <script>
+        // JavaScript code remains unchanged
+    </script>
+</head>
+<body>
+     <!-- Navbar -->
+     <div class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('explore') }}">Explore</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('packages') }}">Packages</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('support') }}">Support</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>WiFi Packages</h2>
+        <p>Monthly Subscription Charges</p>
+
+        <!-- Subscription boxes -->
+        <div id="subscriptionDetails">
+            {% set colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#16a085', '#d35400', '#7f8c8d', '#34495e'] %}
+            {% for speed, price in subscriptions.items() %}
+                <div class="subscription-box" style="background-color: {{ colors[loop.index0 % colors|length] }};" onclick="showPhoneNumberForm('{{ speed }}', '{{ price }}')">
+                    <h3>{{ speed }}</h3>
+                    <p>{{ price }} KSH/month</p>
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Phone Number Form -->
+        <div id="phoneNumberForm" style="display:none;">
+            <h2>Enter your phone number to confirm your subscription</h2>
+            <form onsubmit="submitPhoneNumberForm(event)">
+                <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+                <input type="hidden" id="speed" name="speed">
+                <input type="hidden" id="price" name="price">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- PIN Form -->
+        <div id="pinForm" style="display:none;">
+            <h2>Enter your PIN to confirm payment for <span id="speedText"></span> at <span id="priceText"></span> KSH</h2>
+            <form onsubmit="submitPinForm(event)">
+                <input type="password" id="pin" placeholder="Enter PIN" required>
+                <button type="submit">Confirm Payment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
