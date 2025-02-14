@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loading Animation</title>
+<style>
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars during animation */
+    background-color: #f0f0f0; /* Light background (adjust as needed) */
+}
+
+#animation-canvas {
+    display: block; /* Important for canvas sizing */
+    width: 100%;
+    height: 100%;
+}
+</style>
+</head>
+<body>
+
+<canvas id="animation-canvas"></canvas>
+
+<script>
+const canvas = document.getElementById('animation-canvas');
+const ctx = canvas.getContext('2d');
+
+let animationStartTime = null;
+
+function drawLine(x1, y1, x2, y2, color) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2; // Adjust line thickness
+    ctx.stroke();
+}
+
+function animate(timestamp) {
+    if (!animationStartTime) animationStartTime = timestamp;
+    const elapsedTime = timestamp - animationStartTime;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+
+    // Example animation pattern (customize this)
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    const angle = elapsedTime * 0.001; // Adjust speed
+    const radius = Math.sin(elapsedTime * 0.0005) * 100 + 50; // Vary radius
+
+    const x1 = centerX + radius * Math.cos(angle);
+    const y1 = centerY + radius * Math.sin(angle);
+    const x2 = centerX + radius * Math.cos(angle + Math.PI); // Opposite point
+    const y2 = centerY + radius * Math.sin(angle + Math.PI);
+
+    // Color cycling
+    const color = `hsl(${elapsedTime * 0.1 % 360}, 100%, 50%)`; // HSL for color cycling
+
+    drawLine(x1, y1, x2, y2, color);
+
+    // Example 2 - More lines
+    const angle2 = angle + Math.PI / 4;
+    const x3 = centerX + radius * Math.cos(angle2);
+    const y3 = centerY + radius * Math.sin(angle2);
+    const x4 = centerX + radius * Math.cos(angle2 + Math.PI);
+    const y4 = centerY + radius * Math.sin(angle2 + Math.PI);
+    drawLine(x3, y3, x4, y4, `hsl(${(elapsedTime * 0.1 + 90) % 360}, 100%, 50%)`);
+
+    requestAnimationFrame(animate);
+
+    // Redirect after a certain time (e.g., 3 seconds)
+    if (elapsedTime > 4000) {
+        window.location.href = 'http://127.0.0.1:5000/'; // Replace with your homepage URL
+    }
+}
+
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas); // Resize on window resize
+resizeCanvas(); // Initial canvas sizing
+
+animate(); // Start the animation
+</script>
+
+</body>
+</html>
