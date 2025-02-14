@@ -1,120 +1,249 @@
-/* Apply a background image to the entire page */
-body {
+/* General Styles */
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #add8e6;
     background-size: cover;
     background-position: center;
-    color:#1abc9c;
-    font-family: Arial, sans-serif;
+    color: #1abc9c;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Basic Form Styles */
-input[type="text"], input[type="password"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.navbar-nav .nav-item {
+    margin: 0 15px;
 }
 
-/* Button hover effect */
-button:hover {
-    background-color: #2980b9;
+.navbar .nav-link {
+    color: lightseagreen;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* Main content styling */
+.navbar .nav-link.active {
+    color: red;
+    text-decoration: underline;
+}
+
+.navbar .nav-link:hover {
+    color: #ff0022;
+}
+
+/* Main Content Styling */
 .main-content {
+    padding: 20px;
     text-align: center;
-    padding: 50px;
+    margin-top: 90px;
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+.container-background {
+    width: 100vw;
+    height: 50vh; /* Full screen height */
+    overflow: hidden;
+    position: relative;
 }
 
-/* Subscription box styling */
-.subscription-box {
-    width: 250px;
-    margin: 20px;
+.background-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
+
+#text {
+    font-size: 40px; /* Bigger text */
+    font-family: "Papyrus", fantasy; /* Papyrus font */
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
-/* Different background colors for each subscription box */
-.subscription-box:nth-child(1) { background-color: #3498db; } /* Blue */
-.subscription-box:nth-child(2) { background-color: #2ecc71; } /* Green */
-.subscription-box:nth-child(3) { background-color: #f39c12; } /* Orange */
-.subscription-box:nth-child(4) { background-color: #e74c3c; } /* Red */
-.subscription-box:nth-child(5) { background-color: #9b59b6; } /* Purple */
-.subscription-box:nth-child(6) { background-color: #f1c40f; } /* Yellow */
-.subscription-box:nth-child(7) { background-color: #1abc9c; } /* Teal */
-.subscription-box:nth-child(8) { background-color: #34495e; } /* Dark Gray */
-.subscription-box:nth-child(9) { background-color: #e67e22; } /* Carrot */
-.subscription-box:nth-child(10) { background-color: #95a5a6; } /* Grey */
-
-.subscription-box h3 {
-    font-size: 1.5rem;
-    color: whitesmoke;
-}
-
-.subscription-box p {
-    font-size: 1.2rem;
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
-}
-
-.subscription-box:hover {
-    transform: scale(1.05); /* Slight zoom effect when hovered */
-}
-
-/* Styling for the subscription button */
-button.subscribe-btn {
-    background-color: white; /* Default background for buttons */
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid #3498db;
-    cursor: pointer;
-}
-
-/* Button colors remain consistent, you can change this if you'd like each button to match the box */
-button.subscribe-btn:hover {
-    background-color: #c71b32; /* Hover color */
-    color: white;
-}
-
-/* Phone number and PIN form styling */
-#phoneNumberForm, #pinForm {
-    display: none;
-}
-
-#phoneNumberForm input, #pinForm input {
-    margin: 10px;
+    font-size: 30px;
+    border: none;
     padding: 10px;
-}
-
-#pinForm input {
-    width: 60%;
-}
-
-/* Subscription form button styles */
-button.subscribe-btn {
-    background-color: #fff;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid #3498db;
     cursor: pointer;
+    z-index: 10;
 }
 
-button.subscribe-btn:hover {
-    background-color: #c71b32;
-    color: white;
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
+@media (max-width: 768px) { /* Tablets & small screens */
+    #text {
+        font-size: 25px; /* Smaller text for mobile */
+        padding: 15px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) { /* Phones */
+    .container-background {
+        height: 60vh; /* Slightly larger for mobile */
+    }
+
+    #text {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 6px;
+    }
+}
+
+/* Text and Image Section */
+.text-image-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.text-section {
+    flex: 1;
+    padding-right: 30px;
+    text-align: left;
+}
+
+.text-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.text-section p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: papyrus;
+    font-size: 3rem; /* Adjust font size */
+    font-weight: bold;
+    padding: 20px;
+    width: 90%; /* Ensure text is centered and does not overflow */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5); /* Add a slight background for readability */
+    border-radius: 10px;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word;
+}
+
+
+/* Benefits Section */
+.benefits-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.benefit-item h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: lightskyblue;
+}
+
+.benefit-item p {
+    font-size: 1.5rem;
+    font-family: Papyrus;
+    color: #555;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: #dcdcdc;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
 /* Animated "ECHOTELECOM" text */
 .echotelecom {
     font-size: 2rem;
@@ -147,6 +276,31 @@ button.subscribe-btn:hover {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
 }
+
+/* Subscription Boxes */
+.subscription-box {
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.subscription-box:nth-child(1) { background-color: #3498db; }
+.subscription-box:nth-child(2) { background-color: #2ecc71; }
+.subscription-box:nth-child(3) { background-color: #f39c12; }
+.subscription-box:nth-child(4) { background-color: #e74c3c; }
+.subscription-box:nth-child(5) { background-color: #9b59b6; }
+.subscription-box:nth-child(6) { background-color: #f1c40f; }
+
+.subscription-box:hover {
+    transform: scale(1.05);
+}
+
+/* Payment Options */
 .payment-options {
     display: flex;
     justify-content: center;
@@ -158,48 +312,38 @@ button.subscribe-btn:hover {
     text-align: center;
 }
 
-.payment-option a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .payment-option a:hover p {
-    color: #007bff; /* Optional hover text color */
-}
-
-.payment-option i {
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s;
+    color: #007bff;
 }
 
 .payment-option i:hover {
     transform: scale(1.1);
 }
-
-/* Individual branding colors for icons */
-.paypal-icon {
-    color: #003087; /* PayPal blue */
+/* Spinner styles */
+.spinner {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.credit-card-icon {
-    color: #444444; /* Neutral dark gray for credit cards */
+.spinner-icon {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
 }
 
-.stripe-icon {
-    color: #635bff; /* Stripe purple */
-}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 
-.mpesa-icon {
-    color: #34b233; /* MPesa green */
-}
-
-.cashapp-icon {
-    color: #00c244; /* CashApp green */
-}
-
-.payment-option p {
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: bold;
-}
+    }
