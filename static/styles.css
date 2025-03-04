@@ -252,6 +252,7 @@ button:hover {
     top: 10px;
     left: 20px;
     display: flex;
+    margin-left: 60px;
 }
 
 .echotelecom span {
